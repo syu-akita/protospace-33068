@@ -17,10 +17,11 @@ class PrototypesController < ApplicationController
   end
 
   def create
-   if Prototype.create(prototype_parameter)
+    @prototype = Prototype.create
+   if @prototype.save 
     redirect_to root_path
    else
-    render :new
+    render action: :new
    end
   end
 
@@ -29,11 +30,11 @@ class PrototypesController < ApplicationController
   end
 
   def update
-   if Prototype.update(prototype_parameter)
-    redirect_to prototype_path
-   else
-    render :edit
-   end
+    if Prototype.update(prototype_parameter)
+     redirect_to prototype_path
+    else
+     render :edit
+    end
   end
 
   def destroy

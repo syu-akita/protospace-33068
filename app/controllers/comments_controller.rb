@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     else
       @prototype = @comment.prototype
       @comments = @prototype.comments
-      render "prototypes/@prototypr.id"
+      render "prototypes/show"
     end
   end
 
